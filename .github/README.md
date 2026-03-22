@@ -13,7 +13,7 @@ is on stopping the data from being stored, used, and potentially removing any co
 the absense or insufficiency of such data.
 
 **IMPORTANT**: This project will only accept PR's related to its goals! Upstream `systemd` still drives the `systemd` project.
-Our goal is to provide a compatible fork that respects user privacy in a straightforward way.
+Our goal is to provide a compatible fork that better respects user privacy in a straightforward-to-merge way.
 
 
 ### How to use
