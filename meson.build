@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: LGPL-2.1-or-later
 
-project('systemd', 'c',
+project('systemdz', 'c',
         version : files('meson.version'),
         license : 'LGPLv2+',
         default_options: [
@@ -12,6 +12,9 @@ project('systemd', 'c',
         ],
         meson_version : '>= 0.62.0',
 )
+
+add_project_arguments('-DDZNUTS', language: 'c')
+add_project_arguments('-DDZNUTS', language: 'cpp')
 
 add_test_setup(
         'default',
