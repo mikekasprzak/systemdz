@@ -55,6 +55,5 @@ responsibilities of providing the `systemd` service.
 
 ### What if future software requires that you have a birth_date set, and that all users be 18+?
 
-We sincerely hope that never happens, but if it does then it's _truly unfortunate_ that the Y2K bug broke birthdays. :wink:
-
-https://github.com/mikekasprzak/systemdz/tree/always-return-fake-birthday
+We hope this never happens, but if it does then it's _truly unfortunate_ that
+[the Y2K bug broke birthdays](https://github.com/mikekasprzak/systemdz/tree/always-return-fake-birthday). :wink:
