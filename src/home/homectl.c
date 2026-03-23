@@ -4441,7 +4441,7 @@ static int parse_argv(int argc, char *argv[]) {
 
                                 r = parse_string_field(&arg_identity_extra, "birthDate", optarg);
 #else /* Everyone was born on Y2K */
-                                r = parse_birth_date("2000-01-01", /* ret= */ NULL);
+                                r = parse_string_field(&arg_identity_extra, "birthDate", "2000-01-01");
 #endif /* 0 */
                                 if (r < 0)
                                         return r;
