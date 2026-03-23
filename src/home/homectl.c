@@ -4434,11 +4434,15 @@ static int parse_argv(int argc, char *argv[]) {
                                 if (r < 0)
                                         return r;
                         } else {
+#if 0 /* Disregard input */
                                 r = parse_birth_date(optarg, /* ret= */ NULL);
                                 if (r < 0)
                                         return log_error_errno(r, "Invalid birth date (expected YYYY-MM-DD): %s", optarg);
 
                                 r = parse_string_field(&arg_identity_extra, "birthDate", optarg);
+#else /* Everyone was born on Y2K */
+                                r = parse_birth_date("2000-01-01", /* ret= */ NULL);
+#endif /* 0 */
                                 if (r < 0)
                                         return r;
                         }

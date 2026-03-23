@@ -46,7 +46,11 @@ UserRecord* user_record_new(void) {
                 .nice_level = INT_MAX,
                 .not_before_usec = UINT64_MAX,
                 .not_after_usec = UINT64_MAX,
+#if 0 /* Instead of storing an empty/uninitalized birth_date */
                 .birth_date = BIRTH_DATE_UNSET,
+#else /* Everyone was born on Y2K */
+                .birth_date = parse_birth_date("2000-01-01", NULL),
+#endif /* 0 */
                 .locked = -1,
                 .storage = _USER_STORAGE_INVALID,
                 .access_mode = MODE_INVALID,
@@ -423,6 +427,7 @@ static int json_dispatch_birth_date(const char *name, sd_json_variant *variant, 
         const char *s;
         int r;
 
+#if 0 /* Skip validating that the JSON input was a valid string */
         if (sd_json_variant_is_null(variant)) {
                 *ret = BIRTH_DATE_UNSET;
                 return 0;
@@ -432,6 +437,9 @@ static int json_dispatch_birth_date(const char *name, sd_json_variant *variant, 
                 return json_log(variant, flags, SYNTHETIC_ERRNO(EINVAL), "JSON field '%s' is not a string.", strna(name));
 
         s = sd_json_variant_string(variant);
+#else /* Everyone was born on Y2K */
+        s = "2000-01-01";
+#endif /* 0 */
 
         r = parse_birth_date(s, ret);
         if (r < 0)

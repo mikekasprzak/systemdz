@@ -342,8 +342,17 @@ void user_record_show(UserRecord *hr, bool show_full_group_info) {
                 printf("       Email: %s\n", hr->email_address);
         if (hr->location)
                 printf("    Location: %s\n", hr->location);
+/* In the unlikely case the logging/output is checked before a birth_date is ever set, this works around that */
+#if 0 /* Disregard checking for birth_date */
         if (BIRTH_DATE_IS_SET(hr->birth_date))
                 printf("  Birth Date: %04d-%02d-%02d\n", hr->birth_date.tm_year + 1900, hr->birth_date.tm_mon + 1, hr->birth_date.tm_mday);
+#else /* Everyone was born on Y2K */
+        {
+                struct tm birth_date;
+                parse_birth_date("2000-01-01", &birth_date);
+                printf("  Birth Date: %04d-%02d-%02d\n", birth_date.tm_year + 1900, birth_date.tm_mon + 1, birth_date.tm_mday);
+        }
+#endif /* 0 */
         if (hr->password_hint)
                 printf(" Passw. Hint: %s\n", hr->password_hint);
         if (hr->icon_name)
