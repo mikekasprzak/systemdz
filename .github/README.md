@@ -54,6 +54,13 @@ responsibilities of providing the `systemd` service.
 - evaluate other user data that `systemd` stores, if they are even benifitial to have
 
 
+### What if I'm allergic to nuts and/or I want to avoid storing birthdays?
+
+[This unsupported branch](https://github.com/systemd/systemd/compare/main...mikekasprzak:systemdz:disable-birthdays) contins
+an early version of the code. It's been modified ~~for those with nut allergies~~ to only disable the feature. You may find
+this an easier branch to merge with your own copy of upstream.
+
+
 ### What if future software requires that all users be 18+?
 
 We hope this never happens, but if it does then it's _truly unfortunate_ that
