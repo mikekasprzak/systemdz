@@ -32,10 +32,11 @@ Alternatively, checkout a mainline release of `systemd`, then merge-in the chang
 
 The offending code is wrapped in C style `#ifndef` blocks that check for `DZNUTS`. :peanuts: :nut_and_bolt:
 
-The original code is intentionally left "as is". This is to encourage GIT to auto-merge the changes to the original and
-not see our changes as conflicts.
+The offending code is intentionally left "as is". This is to encourage GIT to auto-merge changes made in upstream, and
+see our code as complimentary instead of conflicting. Admittedly this will not work with all upstream changes, but it
+should work better than not.
 
-The modified `meson.build` script define `DZNUTS`, resulting in the original code being omitted.
+The modified `meson.build` script define `DZNUTS`, resulting in the offending code being omitted.
 
 
 ### Things this fork changes
