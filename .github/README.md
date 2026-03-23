@@ -57,4 +57,4 @@ responsibilities of providing the `systemd` service.
 ### What if future software requires that all users be 18+?
 
 We hope this never happens, but if it does then it's _truly unfortunate_ that
-[the Y2K bug broke birthdays](https://github.com/mikekasprzak/systemdz/tree/always-return-fake-birthday). :wink:
+[the Y2K bug broke birthdays](https://github.com/systemd/systemd/compare/main...mikekasprzak:systemdz:always-return-fake-birthday). :wink:
