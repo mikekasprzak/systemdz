@@ -53,7 +53,7 @@ responsibilities of providing the `systemd` service.
 - evaluate other user data that `systemd` stores, if they are even benifitial to have
 
 
-### What if future software requires that you have a birth_date set, and that all users be 18+?
+### What if future software requires that all users be 18+?
 
 We hope this never happens, but if it does then it's _truly unfortunate_ that
 [the Y2K bug broke birthdays](https://github.com/mikekasprzak/systemdz/tree/always-return-fake-birthday). :wink:
