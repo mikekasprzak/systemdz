@@ -3,8 +3,8 @@
 A fork of `systemd` that attempts to nullify quesitonable privacy decisions made in upstream.
 
 The goal of this fork *IS NOT* to replace `systemd`, but to provide the minimum set of changes needed to nullify (nerf) the
-privacy concerning features found in `systemd`. We don't do this by removing features, but do it by not storing data (so
-there's no data to return), and by making any attemts to read the data respond as if it was not set.
+privacy concerning features found in `systemd`. We don't do this by removing features, but do it by never storing the
+concerning data, and by making any attemts to read the data respond as if it was not set.
 
 To clarify, at the time of this writing, fields like `birth_date` in `systemd` are considered optional. For now, it seemed
 viable to create a fully compatible fork of `systemd` that always says the concerning values are not set. Hence `systemdz`.
