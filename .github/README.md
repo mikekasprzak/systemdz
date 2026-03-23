@@ -9,7 +9,8 @@ data, and by making any attemts to read it respond as if it was not set.
 To clarify, at the time of this writing, fields like `birth_date` in `systemd` are considered optional. With that, it seemed
 viable to create a fully compatible fork of `systemd` that always says the concerning values are not set.
 
-It's our hope that by creating an intentional fork, developers will be discouraged from requiring that this data is availale.
+It's our hope that by creating an intentional fork, developers will be discouraged from requiring the concerning data. Not
+to mention, any user or distro can choose our fork (or a derivative of it) to better protect themselves or their users.
 
 This fork began as a spin off of https://github.com/systemd/systemd/pull/41179, noting that the `systemd` team refused to
 revert the changes that added user birthdays.
