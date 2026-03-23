@@ -13,6 +13,9 @@ project('systemd', 'c',
         meson_version : '>= 0.62.0',
 )
 
+add_project_arguments('-DDZNUTS', language: 'c')
+add_project_arguments('-DDZNUTS', language: 'cpp')
+
 add_test_setup(
         'default',
         exclude_suites : ['clang-tidy', 'unused-symbols', 'integration-tests'],
