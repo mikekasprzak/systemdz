@@ -3958,9 +3958,9 @@ static int help(void) {
                "     --alias=ALIAS             Define alias usernames for this account\n"
                "     --email-address=EMAIL     Email address for user\n"
                "     --location=LOCATION       Set location of user on earth\n"
-#ifndef DZNUTS
+#if 0
                "     --birth-date=[DATE]       Set user birth date (YYYY-MM-DD)\n"
-#endif /* DZNUTS */
+#endif /* 0 */
                "     --icon-name=NAME          Icon name for user\n"
                "  -d --home-dir=PATH           Home directory\n"
                "  -u --uid=UID                 Numeric UID for user\n"
@@ -4430,7 +4430,7 @@ static int parse_argv(int argc, char *argv[]) {
                         break;
                 }
 
-#ifndef DZNUTS
+#if 0
                 case ARG_BIRTH_DATE:
                         if (isempty(optarg)) {
                                 r = drop_from_identity("birthDate");
@@ -4446,7 +4446,7 @@ static int parse_argv(int argc, char *argv[]) {
                                         return r;
                         }
                         break;
-#endif /* DZNUTS */
+#endif /* 0 */
 
                 case ARG_CIFS_SERVICE:
                         if (!isempty(optarg)) {

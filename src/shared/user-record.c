@@ -46,9 +46,9 @@ UserRecord* user_record_new(void) {
                 .nice_level = INT_MAX,
                 .not_before_usec = UINT64_MAX,
                 .not_after_usec = UINT64_MAX,
-#ifndef DZNUTS
+#if 0
                 .birth_date = BIRTH_DATE_UNSET,
-#endif /* DZNUTS */
+#endif /* 0 */
                 .locked = -1,
                 .storage = _USER_STORAGE_INVALID,
                 .access_mode = MODE_INVALID,
@@ -420,7 +420,7 @@ static int json_dispatch_filename_or_path(const char *name, sd_json_variant *var
         return 0;
 }
 
-#ifndef DZNUTS
+#if 0
 static int json_dispatch_birth_date(const char *name, sd_json_variant *variant, sd_json_dispatch_flags_t flags, void *userdata) {
         struct tm *ret = ASSERT_PTR(userdata);
         const char *s;
@@ -442,7 +442,7 @@ static int json_dispatch_birth_date(const char *name, sd_json_variant *variant, 
 
         return 0;
 }
-#endif /* DZNUTS */
+#endif /* 0 */
 
 static int json_dispatch_home_directory(const char *name, sd_json_variant *variant, sd_json_dispatch_flags_t flags, void *userdata) {
         char **s = userdata;
@@ -1623,9 +1623,9 @@ int user_record_load(UserRecord *h, sd_json_variant *v, UserRecordLoadFlags load
                 { "emailAddress",               SD_JSON_VARIANT_STRING,        sd_json_dispatch_string,              offsetof(UserRecord, email_address),                 SD_JSON_STRICT },
                 { "iconName",                   SD_JSON_VARIANT_STRING,        sd_json_dispatch_string,              offsetof(UserRecord, icon_name),                     SD_JSON_STRICT },
                 { "location",                   SD_JSON_VARIANT_STRING,        sd_json_dispatch_string,              offsetof(UserRecord, location),                      0              },
-#ifndef DZNUTS
+#if 0
                 { "birthDate",                  SD_JSON_VARIANT_STRING,        json_dispatch_birth_date,             offsetof(UserRecord, birth_date),                    0              },
-#endif /* DZNUTS */
+#endif /* 0 */
                 { "disposition",                SD_JSON_VARIANT_STRING,        json_dispatch_user_disposition,       offsetof(UserRecord, disposition),                   0              },
                 { "lastChangeUSec",             _SD_JSON_VARIANT_TYPE_INVALID, sd_json_dispatch_uint64,              offsetof(UserRecord, last_change_usec),              0              },
                 { "lastPasswordChangeUSec",     _SD_JSON_VARIANT_TYPE_INVALID, sd_json_dispatch_uint64,              offsetof(UserRecord, last_password_change_usec),     0              },
