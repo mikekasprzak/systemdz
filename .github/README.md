@@ -6,8 +6,8 @@ The goal of this fork *IS NOT* to replace `systemd`, but to provide the minimum 
 privacy concerning features found in `systemd`. We don't do this by removing features, but do it by not storing data (so
 there's no data to return), and by making any attemts to read the data respond as if it was not set.
 
-To clarify, at the time of this writing, fields like `birth_date` in `systemd` are considered optional. So for now, it seemed
-viable to create a fully binary compatible fork of `systemd` that simply never says "concerning values" are set.
+To clarify, at the time of this writing, fields like `birth_date` in `systemd` are considered optional. For now, it seemed
+viable to create a fully compatible fork of `systemd` that always says the concerning values are not set. Hence `systemdz`.
 
 It's our hope that by creating an intentional fork, developers will be discouraged from requiring that this data is availale.
 
