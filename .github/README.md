@@ -38,6 +38,9 @@ should work better than not.
 
 The modified `meson.build` script define `DZNUTS`, resulting in the offending code being omitted.
 
+It's not practical for us to keep this code perfectly in sync with upstream, so we've done our best to make merging it
+as straightforward as possible. It may be possible to automate some of it, but at this time we manually sync changes.
+
 
 ### Things this fork changes
 
@@ -48,11 +51,11 @@ The modified `meson.build` script define `DZNUTS`, resulting in the offending co
 
 Things to explore:
 
+- evaluate other user data that `systemd` stores, if they are even benifitial to have
 - updating any package generation scripts to output a new package `systemdz` that once installed evicts and takes over all
 responsibilities of providing the `systemd` service.
 - set up a PPA to easily switch to `systemdz`
 - automerge changes to upstream that don't raise any obvious flags
-- evaluate other user data that `systemd` stores, if they are even benifitial to have
 
 
 ### What if I'm allergic to nuts and/or I want to avoid storing birthdays?
