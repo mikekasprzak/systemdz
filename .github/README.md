@@ -1,21 +1,21 @@
 ## systemdz (nuts)
 
-An "easy-to-sync-with-upstream" fork of `systemd` that attempts to nullify quesitonable privacy decisions made in upstream.
+A fork of `systemd` that attempts to nullify quesitonable privacy decisions made in upstream.
 
-The goal of this fork *IS NOT* to run a parallel project, but to provide a minimum number of changes needed to nullify or "nerf"
-the privacy concerning features of `systemd`. We don't do this by removing features, but by removing the data and making any
-attempts to read, write, or store data fail.
+The goal of this fork *IS NOT* to replace `systemd`, but to provide the minimum set of changes needed to nullify (nerf) the
+privacy concerning features found in `systemd`. We don't do this by removing features, but do it by not storing data (so
+there's no data to return), and by making any attemts to read the data respond as if it was not set.
 
-This began as a spin off of https://github.com/systemd/systemd/pull/41179, noting that the `systemd` team refused to revert the
-changes that added tracking user birthdays. Its worth mentioning some other date/time improvement were made to `systemd`
-after these changes were merged (i.e. SHA256 hashes now check freshness), so original proposal of reverting the changes isn't
-exactly viable anymore.
+To clarify, at the time of this writing, fields like `birth_date` in `systemd` are considered optional. So for now, it seemed
+viable to create a fully binary compatible fork of `systemd` that simply never says "concerning values" are set.
 
-The focus of this fork is to instead stop the data from being stored or used, and if it happens, removing any code that blocks
-any core features of `systemd` that are gated behind the absense or insufficiency of user data (things like 18+ only).
+It's our hope that by creating an intentional fork, developers will be discouraged from requiring that this data is availale.
 
-**IMPORTANT**: This project will only accept PR's related to its goals! Upstream `systemd` still drives the `systemd` project.
-Our goal is to provide a drop-in-replacement that better respects user privacy in a straightforward-to-merge way.
+This fork began as a spin off of https://github.com/systemd/systemd/pull/41179, noting that the `systemd` team refused to
+revert the changes that added user birthdays.
+
+**IMPORTANT**: This project will only accept PR's related to its goals! Upstream `systemd` still drives the project. We the
+authors are simply trying to fix what we consider mistakes with upstream.
 
 
 ### How to use this
@@ -29,11 +29,12 @@ Alternatively, checkout a mainline release of `systemd`, then merge-in the chang
 
 ### How the it works
 
-The offending code is wrapped in c `#ifdef` blocks that check for `DZNUTS`. :wink:
+The offending code is wrapped in C style `#ifndef` blocks that check for `DZNUTS`. :squirrel:
 
-The original code is left in "as is". GIT should be see this, and auto-merge any changes, as they should only apply to
-the original code. If all goes well, no conflicts will trigger. If it doesn't, then a fix might be needed. Partial PR's
-that correct this are welcome.
+The original code is intentionally left "as is". This is to encourage GIT to auto-merge the changes to the original and
+not see our changes as conflicts.
+
+Our Meson build scripts also define `DZNUTS`, so the original code is omitted.
 
 
 ### Things this fork changes
@@ -45,8 +46,8 @@ that correct this are welcome.
 
 Things to explore:
 
-- updating any package generation scripts to output a new package `systemdz` that once installed takes over the responsibilities
-for the `systemd` package.
-- set up a PPA allowing users to seamlessly switch by installing a package
-- automerge changes to upstream that don't raise any flags
-- evaluate other data that `systemd` stores about users, and unless it provides actual benefit to the user, consider nullifying them
+- updating any package generation scripts to output a new package `systemdz` that once installed evicts and takes over all
+responsibilities of providing the `systemd` service.
+- set up a PPA to easily switch to `systemdz`
+- automerge changes to upstream that don't raise any obvious flags
+- evaluate other user data that `systemd` stores, if they are even benifitial to have
