@@ -3,8 +3,8 @@
 A fork of `systemd` that attempts to nullify quesitonable privacy decisions made in upstream.
 
 The goal of this fork *IS NOT* to replace `systemd`, but to provide the minimum set of changes needed to nullify (nerf) the
-privacy concerning features found in `systemd`. We don't do this by removing features, but do it by never storing the
-concerning data, and by making any attemts to read the data respond as if it was not set.
+privacy concerning features found in `systemd`. We do this by changing `systemd` simply never store the concerning data,
+and by making any attemts to read it respond as if it was not set.
 
 To clarify, at the time of this writing, fields like `birth_date` in `systemd` are considered optional. For now, it seemed
 viable to create a fully compatible fork of `systemd` that always says the concerning values are not set. Hence `systemdz`.
@@ -51,3 +51,10 @@ responsibilities of providing the `systemd` service.
 - set up a PPA to easily switch to `systemdz`
 - automerge changes to upstream that don't raise any obvious flags
 - evaluate other user data that `systemd` stores, if they are even benifitial to have
+
+
+### What if future software requires that you have a birth_date set, and that all users be 18+?
+
+We sincerely hope that never happens, but if it does then it's _truly unfortunate_ that the Y2K bug broke birthdays. :wink:
+
+https://github.com/mikekasprzak/systemdz/tree/always-return-fake-birthday
