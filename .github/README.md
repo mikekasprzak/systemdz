@@ -44,7 +44,7 @@ as straightforward as possible. It may be possible to automate some of it, but a
 
 ### Things this fork changes
 
-- `birth_date` is never stored, read, and otherwise acts the same as `systemd` where its not set
+- `birth_date`/`birthDate` is never stored, read, and otherwise acts as if its not set
 - The project name in `meson.build` is set to `systemdz`
 - `DZNUTS` is defined in `meson.build` for C and C++ targets
 
