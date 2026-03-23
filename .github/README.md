@@ -35,7 +35,7 @@ The offending code is wrapped in C style `#ifndef` blocks that check for `DZNUTS
 The original code is intentionally left "as is". This is to encourage GIT to auto-merge the changes to the original and
 not see our changes as conflicts.
 
-Our Meson build scripts also define `DZNUTS`, so the original code is omitted.
+The modified `meson.build` script define `DZNUTS`, resulting in the original code being omitted.
 
 
 ### Things this fork changes
