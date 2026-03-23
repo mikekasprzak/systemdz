@@ -30,7 +30,7 @@ Alternatively, checkout a mainline release of `systemd`, then merge-in the chang
 
 ### How the it works
 
-The offending code is wrapped in C style `#ifndef` blocks that check for `DZNUTS`. :squirrel:
+The offending code is wrapped in C style `#ifndef` blocks that check for `DZNUTS`. :peanuts: :nut_and_bolt:
 
 The original code is intentionally left "as is". This is to encourage GIT to auto-merge the changes to the original and
 not see our changes as conflicts.
